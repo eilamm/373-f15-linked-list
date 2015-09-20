@@ -39,6 +39,7 @@ list_t* reverse(list_t* head) {
 	assert(head != NULL);
 	list_t* temp = head->next;
 	list_t* temp_trail = head;
+	// (if)
 	return head;
 }
 
