@@ -9,8 +9,27 @@
 // after the insertion of the new element.
 list_t* insert_sorted(list_t* head, list_t* new_element) {
 	assert(head != NULL);
-	assert(new_element != NULL);
+	assert(new_element != NULL); 
 
+	
+	if (new_element->index < head->index) {
+		new_element->next = head;
+		head = new_element;
+		return head;
+	}
+
+	list_t* list_ptr = head->next;
+	list_t* prev_ptr = head;
+	while (list_ptr != NULL) {
+		if (new_element->index < list_ptr->index) {
+			prev_ptr->next = new_element;
+			new_element->next = list_ptr;
+			return head;
+		}
+	}
+	//New element is largest element
+	prev_ptr->next = new_element;
+	new_element->next = NULL;
 	return head;
 }
 
@@ -18,7 +37,8 @@ list_t* insert_sorted(list_t* head, list_t* new_element) {
 // the resulting list. You do not need to preserve the original list.
 list_t* reverse(list_t* head) {
 	assert(head != NULL);
-
+	list_t* temp = head->next;
+	list_t* temp_trail = head;
 	return head;
 }
 
